@@ -17,8 +17,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func getTemplate(name string) *template.Template {
-	file := "views/" + name + ".html"
-	return template.Must(template.ParseFiles(file, "views/base.html"))
+	file := "src/go/views/" + name + ".html"
+	return template.Must(template.ParseFiles(file, "src/go/views/base.html"))
 }
 
 func render(t *template.Template, w http.ResponseWriter,

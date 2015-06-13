@@ -10,7 +10,7 @@ func Profile(w http.ResponseWriter, r *http.Request) {
 	// Redirect to own profile if no id found and logged in
 	if id == "" {
 		// TODO
-		http.Redirect(w, r, "/profile?id=123", 301)
+		http.Redirect(w, r, "/profile?id=123", 307)
 	}
 
 	t := getTemplate("profile")
