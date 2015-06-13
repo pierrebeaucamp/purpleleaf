@@ -12,10 +12,18 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	t := template.Must(template.ParseFiles("views/index.html",
-		"views/base.html"))
+	t := getTemplate("index")
+	render(t, w, nil)
+}
 
-	err := t.ExecuteTemplate(w, "body", nil)
+func getTemplate(name string) *template.Template {
+	file := "views/" + name + ".html"
+	return template.Must(template.ParseFiles(file, "views/base.html"))
+}
+
+func render(t *template.Template, w http.ResponseWriter,
+	varmap map[string]interface{}) {
+	err := t.ExecuteTemplate(w, "body", varmap)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"html/template"
 	"net/http"
 )
 
@@ -14,15 +13,10 @@ func Profile(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/profile?id=123", 301)
 	}
 
-	t := template.Must(template.ParseFiles("views/profile.html",
-		"views/base.html"))
-
+	t := getTemplate("profile")
 	varmap := map[string]interface{}{
 		"id": id,
 	}
 
-	err := t.ExecuteTemplate(w, "body", varmap)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	render(t, w, varmap)
 }
