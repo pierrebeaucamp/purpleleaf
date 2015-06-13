@@ -53,4 +53,4 @@ build/Release
 node_modules
 
 # vim swap files
-.swp
+*.swp
