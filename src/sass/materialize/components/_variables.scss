@@ -149,4 +149,4 @@ $collection-active-color: lighten($secondary-color, 55%) !default;
 $collection-hover-bg-color: #ddd !default;
 
 /* Progress Bar */
-$progress-bar-color: $secondary-color !default;
+$progress-bar-color: color("pink", "base") !default;

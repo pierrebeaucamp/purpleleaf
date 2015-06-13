@@ -518,13 +518,35 @@ td, th{
       color: #fff;
     }
     .collection-item {
+      padding: 0!important;
+      position: relative;
       width: 100%;
       a {
         color: color("grey", "darken-4");
         display: block;
+        padding: 10px 20px 10px 72px;
       }
       .secondary-content {
         font-size: 20px;
+      }
+      .progress {
+        color: #fff;
+        font-size: 12px;
+        overflow: visible;
+        width: 80%;
+
+        span {
+          background: color("pink", "base");
+          color: #fff;
+          display: inline-block;
+          padding: 0 6px;
+          font-size: 11px;
+          position: absolute;
+          right: 0;
+        }
+      }
+      .determinate {
+        padding: 0 5px;
       }
     }
     .collection-item.avatar {
