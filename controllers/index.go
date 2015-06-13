@@ -15,7 +15,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("views/index.html",
 		"views/base.html"))
 
-	err := t.ExecuteTemplate(w, "base", nil)
+	err := t.ExecuteTemplate(w, "body", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
