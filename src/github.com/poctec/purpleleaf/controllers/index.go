@@ -1,15 +1,11 @@
-package purpleleaf
+package controllers
 
 import (
 	"html/template"
 	"net/http"
 )
 
-func init() {
-	http.HandleFunc("/", index)
-}
-
-func index(w http.ResponseWriter, r *http.Request) {
+func Index(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("views/base.html"))
 
 	err := t.Execute(w, nil)
