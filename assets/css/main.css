@@ -2352,7 +2352,7 @@ td, th {
     .collection a.collection-item:not(.active):hover {
       background-color: #ddd; }
   .collection.with-header .collection-header {
-    background-color: #8e24aa;
+    background-color: #8bc34a;
     border-bottom: 1px solid #e0e0e0;
     padding: 10px 20px;
     color: #fff; }
@@ -2372,7 +2372,7 @@ td, th {
       overflow: visible;
       width: 80%; }
       .collection.with-header .collection-item .progress span {
-        background: #9c27b0;
+        background: #4a148c;
         color: #fff;
         display: inline-block;
         padding: 0 6px;
@@ -2429,7 +2429,7 @@ span.badge {
   height: 4px;
   display: block;
   width: 100%;
-  background-color: #e6b5ee;
+  background-color: #b17fed;
   border-radius: 2px;
   margin: 0.5rem 0 1rem 0;
   overflow: hidden; }
@@ -2439,14 +2439,14 @@ span.badge {
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: #9c27b0;
+    background-color: #4a148c;
     -webkit-transition: width 0.3s linear;
     -moz-transition: width 0.3s linear;
     -o-transition: width 0.3s linear;
     -ms-transition: width 0.3s linear;
     transition: width 0.3s linear; }
   .progress .indeterminate {
-    background-color: #9c27b0; }
+    background-color: #4a148c; }
     .progress .indeterminate:before {
       content: '';
       position: absolute;
@@ -8334,6 +8334,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   float: left;
   font-size: 1.6rem;
   font-family: Georgia, Times, serif; }
+  .userbox__name .badge {
+    color: #fff;
+    font-size: 12px;
+    font-family: sans-serif; }
 
 .userbox__bio {
   clear: both;
@@ -8341,5 +8345,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .badge-grid img {
   max-width: 100%; }
+.badge-grid .tooltipped {
+  display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */

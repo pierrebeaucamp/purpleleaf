@@ -19,7 +19,13 @@
 .userbox__name {
 	float: left;
 	font-size: 1.6rem;
-	font-family: Georgia, Times, serif,
+	font-family: Georgia, Times, serif;
+
+	.badge {
+		color: #fff;
+		font-size: 12px;
+		font-family: sans-serif;
+	}
 }
 
 .userbox__bio {
