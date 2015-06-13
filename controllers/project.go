@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"fmt"
+	"html/template"
 	"net/http"
 )
 
@@ -13,5 +13,15 @@ func Project(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", 302)
 	}
 
-	fmt.Fprintf(w, "You are looking at project id %s", id)
+	t := template.Must(template.ParseFiles("views/project.html",
+		"views/base.html"))
+
+	varmap := map[string]interface{}{
+		"id": id,
+	}
+
+	err := t.ExecuteTemplate(w, "body", varmap)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }

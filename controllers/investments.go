@@ -1,10 +1,16 @@
 package controllers
 
 import (
-	"fmt"
+	"html/template"
 	"net/http"
 )
 
 func Investments(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "You are looking at the investments page")
+	t := template.Must(template.ParseFiles("views/investments.html",
+		"views/base.html"))
+
+	err := t.ExecuteTemplate(w, "body", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
