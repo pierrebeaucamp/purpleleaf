@@ -1,0 +1,28 @@
+.userbox {
+	margin-bottom: 1rem;
+	img {
+		max-width: 100%;
+	}
+}
+
+.userbox__avatar {
+	float: left;
+	position: relative;
+  	margin: -70px 15px 0 15px;
+  	width: 120px;
+
+  	img {
+  		border: 3px solid #fff;
+  	}
+}
+
+.userbox__name {
+	float: left;
+	font-size: 1.6rem;
+	font-family: Georgia, Times, serif,
+}
+
+.userbox__bio {
+	clear: both;
+	padding: 10px;
+}

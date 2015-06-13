@@ -40,16 +40,28 @@ nav {
 
   // Logo
   .brand-logo {
-    background: url(/assets/img/logo.png) 5px 5px no-repeat;
-    background-size: 170px;
+    background: url(/assets/img/logo-icon.png) 5px 5px no-repeat;
+    background-size: 75px;
     position: absolute;
     color: $navbar-font-color;
     display: inline-block;
     font-size: $navbar-brand-font-size;
     padding: 0;
+    position: relative;
     white-space: nowrap;
     height: 100%;
-    width: 200px;
+    width: 80px;
+
+    span {
+      background: url(/assets/img/logo-font.png) 5px 5px no-repeat;
+      background-size: 150px;
+      position: absolute;
+      top: 0;
+      left: 70px;
+      display: inline-block;
+      height: 105px;
+      width: 200px;
+    }
 
     &.center {
       left: 50%;
