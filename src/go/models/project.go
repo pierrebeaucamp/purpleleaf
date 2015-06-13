@@ -2,7 +2,9 @@ package models
 
 import (
 	"appengine"
+	"appengine/blobstore"
 	"appengine/datastore"
+	"appengine/image"
 	"errors"
 	"net/http"
 	"net/url"
@@ -12,11 +14,33 @@ import (
 type Project struct {
 	Name        string
 	Description string
+	ImageURL    string
 }
 
 // Each project gets assigend the same ancestor so we have faster reads
 func parentProject(c appengine.Context) *datastore.Key {
 	return datastore.NewKey(c, "Project", "parent-project", 0, nil)
+}
+
+func GetImageURL(r *http.Request) string {
+	c := appengine.NewContext(r)
+
+	blobs, _, err := blobstore.ParseUpload(r)
+	if err != nil {
+		return "http://lorempixel.com/680/460/"
+	}
+
+	imgs := blobs["image"]
+	if len(imgs) == 0 {
+		return "http://lorempixel.com/680/460/"
+	}
+
+	o := image.ServingURLOptions{
+		Secure: true,
+	}
+
+	img_url, err := image.ServingURL(c, imgs[0].BlobKey, &o)
+	return img_url.String()
 }
 
 // generate a new key based on the title and return an error in case of
@@ -48,6 +72,12 @@ func GetProject(r *http.Request) (*Project, error) {
 	}
 
 	return p, nil
+}
+
+func GetUploadURL(r *http.Request) (string, error) {
+	c := appengine.NewContext(r)
+	url, err := blobstore.UploadURL(c, "/project/upload", nil)
+	return url.String(), err
 }
 
 // stores a project

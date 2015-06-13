@@ -1,0 +1,13 @@
+{{define "body"}}
+{{template "header"}}
+
+<form action="{{.url}}" method="POST" enctype="multipart/form-data">
+    Title: <input type="text" name="title" required autofocus><br>
+    Description: <textarea rows="4" cols="50"  name="description"></textarea>
+    <br>
+    Upload Image: <input type="file" name="image"><br>
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+{{template "footer"}}
+{{end}}
