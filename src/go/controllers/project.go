@@ -26,7 +26,7 @@ func Project(w http.ResponseWriter, r *http.Request) {
 
 	// Redirect wrong urls
 	if len(url) != 3 {
-		http.Redirect(w, r, "/404", 301)
+		http.Redirect(w, r, "/404", 307)
 		return
 	}
 
