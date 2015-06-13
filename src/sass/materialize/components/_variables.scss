@@ -110,8 +110,8 @@ $slider-bg-color-light: color('grey', 'lighten-2') !default;
 $slider-indicator-color: color('green', 'base') !default;
 
 /*** Tabs ***/
-$tabs-underline-color: color("pink", "darken-2") !default;
-$tabs-text-color: color("pink", "darken-4") !default;
+$tabs-underline-color: color("purple", "darken-2") !default;
+$tabs-text-color: color("purple", "darken-4") !default;
 $tabs-bg-color: #fff !default;
 
 /*** Tables ***/
@@ -149,4 +149,4 @@ $collection-active-color: lighten($secondary-color, 55%) !default;
 $collection-hover-bg-color: #ddd !default;
 
 /* Progress Bar */
-$progress-bar-color: color("pink", "base") !default;
+$progress-bar-color: color("purple", "base") !default;

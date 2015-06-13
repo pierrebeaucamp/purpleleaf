@@ -2352,7 +2352,7 @@ td, th {
     .collection a.collection-item:not(.active):hover {
       background-color: #ddd; }
   .collection.with-header .collection-header {
-    background-color: #c2185b;
+    background-color: #8e24aa;
     border-bottom: 1px solid #e0e0e0;
     padding: 10px 20px;
     color: #fff; }
@@ -2372,7 +2372,7 @@ td, th {
       overflow: visible;
       width: 80%; }
       .collection.with-header .collection-item .progress span {
-        background: #e91e63;
+        background: #9c27b0;
         color: #fff;
         display: inline-block;
         padding: 0 6px;
@@ -2429,7 +2429,7 @@ span.badge {
   height: 4px;
   display: block;
   width: 100%;
-  background-color: #fbd8e4;
+  background-color: #e6b5ee;
   border-radius: 2px;
   margin: 0.5rem 0 1rem 0;
   overflow: hidden; }
@@ -2439,14 +2439,14 @@ span.badge {
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: #e91e63;
+    background-color: #9c27b0;
     -webkit-transition: width 0.3s linear;
     -moz-transition: width 0.3s linear;
     -o-transition: width 0.3s linear;
     -ms-transition: width 0.3s linear;
     transition: width 0.3s linear; }
   .progress .indeterminate {
-    background-color: #e91e63; }
+    background-color: #9c27b0; }
     .progress .indeterminate:before {
       content: '';
       position: absolute;
@@ -5283,10 +5283,10 @@ span.badge {
 
 nav {
   color: #fff;
-  background-color: #880e4f;
+  background-color: #4a148c;
   width: 100%;
-  height: 80px;
-  line-height: 80px; }
+  height: 65px;
+  line-height: 65px; }
   nav a {
     color: #fff; }
   nav .nav-wrapper {
@@ -5308,8 +5308,8 @@ nav {
       height: 80px;
       line-height: 80px; }
   nav .brand-logo {
-    background: url(/assets/img/logo-icon.png) 5px 5px no-repeat;
-    background-size: 75px;
+    background: url(/assets/img/logo.png) 5px 5px no-repeat;
+    background-size: 160px;
     position: absolute;
     color: #fff;
     display: inline-block;
@@ -5318,16 +5318,19 @@ nav {
     position: relative;
     white-space: nowrap;
     height: 100%;
-    width: 80px; }
-    nav .brand-logo span {
-      background: url(/assets/img/logo-font.png) 5px 5px no-repeat;
-      background-size: 150px;
-      position: absolute;
-      top: 0;
-      left: 70px;
-      display: inline-block;
-      height: 105px;
-      width: 200px; }
+    width: 200px;
+    /*
+        span {
+          background: url(/assets/img/logo-font.png) 5px 5px no-repeat;
+          background-size: 150px;
+          position: absolute;
+          top: 0;
+          left: 70px;
+          display: inline-block;
+          height: 105px;
+          width: 200px;
+        }
+    */ }
     nav .brand-logo.center {
       left: 50%;
       -webkit-transform: translateX(-50%);
@@ -5403,6 +5406,14 @@ nav {
 
   .navbar-fixed {
     height: 90px; } }
+#dropdown1 {
+  left: auto !important;
+  right: 0;
+  width: 50% !important;
+  top: 65px !important; }
+  #dropdown1 a {
+    color: #4a148c; }
+
 @font-face {
   font-family: "Roboto";
   src: url("../font/roboto/Roboto-Thin.woff2") format("woff2"), url("../font/roboto/Roboto-Thin.woff") format("woff"), url("../font/roboto/Roboto-Thin.ttf") format("truetype");
@@ -5725,7 +5736,7 @@ small {
   position: relative;
   height: 48px;
   background-color: #fff;
-  margin: 0 auto 0.75rem 0;
+  margin: 0 auto 1rem 0;
   width: 100%;
   white-space: nowrap; }
   .tabs .tab {
@@ -5740,7 +5751,7 @@ small {
     letter-spacing: .8px;
     width: 15%; }
     .tabs .tab a {
-      color: #880e4f;
+      color: #4a148c;
       display: block;
       width: 100%;
       height: 100%;
@@ -5750,15 +5761,15 @@ small {
       -ms-transition: color 0.28s ease;
       transition: color 0.28s ease; }
       .tabs .tab a:hover {
-        color: #e41885; }
+        color: #7a26e0; }
     .tabs .tab.disabled a {
-      color: #e41885;
+      color: #7a26e0;
       cursor: default; }
   .tabs .indicator {
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: #c2185b;
+    background-color: #7b1fa2;
     will-change: left, right; }
 
 .tabs .tab {
@@ -8327,5 +8338,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .userbox__bio {
   clear: both;
   padding: 10px; }
+
+.badge-grid img {
+  max-width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

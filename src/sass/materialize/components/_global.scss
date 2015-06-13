@@ -512,7 +512,7 @@ td, th{
 
   &.with-header {
     .collection-header {
-      background-color: color("pink", "darken-2");
+      background-color: color("purple", "darken-1");
       border-bottom: 1px solid $collection-border-color;
       padding: 10px 20px;
       color: #fff;
@@ -536,7 +536,7 @@ td, th{
         width: 80%;
 
         span {
-          background: color("pink", "base");
+          background: color("purple", "base");
           color: #fff;
           display: inline-block;
           padding: 0 6px;

@@ -1,10 +1,10 @@
 nav {
   color: $navbar-font-color;
   @extend .z-depth-1;
-  background-color: color("pink", "darken-4");
+  background-color: color("purple", "darken-4");
   width: 100%;
-  height: $navbar-height-mobile;
-  line-height: $navbar-height-mobile;
+  height: 65px; //$navbar-height-mobile;
+  line-height: 65px; // $navbar-height-mobile;
 
   a { color: $navbar-font-color; }
 
@@ -40,8 +40,8 @@ nav {
 
   // Logo
   .brand-logo {
-    background: url(/assets/img/logo-icon.png) 5px 5px no-repeat;
-    background-size: 75px;
+    background: url(/assets/img/logo.png) 5px 5px no-repeat;
+    background-size: 160px;
     position: absolute;
     color: $navbar-font-color;
     display: inline-block;
@@ -50,8 +50,9 @@ nav {
     position: relative;
     white-space: nowrap;
     height: 100%;
-    width: 80px;
+    width: 200px;
 
+/*
     span {
       background: url(/assets/img/logo-font.png) 5px 5px no-repeat;
       background-size: 150px;
@@ -62,7 +63,7 @@ nav {
       height: 105px;
       width: 200px;
     }
-
+*/
     &.center {
       left: 50%;
       @include transform(translateX(-50%));
@@ -155,5 +156,15 @@ nav {
   }
   .navbar-fixed {
     height: $navbar-height;
+  }
+}
+
+#dropdown1 {
+  left: auto!important;
+  right: 0;
+  width: 50%!important;
+  top: 65px!important;
+  a {
+    color: color("purple", "darken-4");
   }
 }
