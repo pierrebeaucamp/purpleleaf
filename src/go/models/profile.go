@@ -3,7 +3,9 @@ package models
 import (
 	"appengine"
 	"appengine/datastore"
+	"errors"
 	"net/http"
+	"net/url"
 	"strings"
 )
 
@@ -13,8 +15,21 @@ type Profile struct {
 }
 
 // Each profile gets assigend the same ancestor so we have faster reads
-func parentProfile(c appengine.Context) *datastore.Key {
+func (p *Profile) parent(c appengine.Context) *datastore.Key {
 	return datastore.NewKey(c, "Profile", "parent-profile", 0, nil)
+}
+
+func (p *Profile) generateKey(c appengine.Context, id string) (*datastore.Key,
+	error) {
+	key := datastore.NewKey(c, "Profile", id, 0, p.parent(c))
+	tmp_p := new(Profile)
+
+	err := datastore.Get(c, key, tmp_p)
+	if err == nil {
+		return nil, errors.New("Name already in use")
+	}
+
+	return key, nil
 }
 
 // returns a profile based on an id
@@ -23,7 +38,7 @@ func GetProfile(r *http.Request) (*Profile, error) {
 	id := strings.Split(r.URL.Path, "/")[2]
 	p := new(Profile)
 
-	key := datastore.NewKey(c, "Profile", id, 0, parentProfile(c))
+	key := datastore.NewKey(c, "Profile", id, 0, p.parent(c))
 
 	err := datastore.Get(c, key, p)
 	if err != nil {
@@ -31,4 +46,21 @@ func GetProfile(r *http.Request) (*Profile, error) {
 	}
 
 	return p, nil
+}
+
+func (p *Profile) Store(r *http.Request) (string, error) {
+	c := appengine.NewContext(r)
+	id := url.QueryEscape(p.Name)
+
+	key, err := p.generateKey(c, id)
+	if err != nil {
+		return "", err
+	}
+
+	_, err = datastore.Put(c, key, p)
+	if err != nil {
+		return "", err
+	}
+
+	return key.StringID(), nil
 }

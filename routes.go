@@ -12,7 +12,8 @@ func init() {
 	http.HandleFunc("/project/new", controllers.SubmitProject)
 	http.HandleFunc("/project/upload", controllers.NewProject)
 
-	http.HandleFunc("/profile", controllers.Profile)
+	http.HandleFunc("/profile/", controllers.Profile)
+	http.HandleFunc("/profile/dummies", controllers.Dummies)
 
 	http.HandleFunc("/investments", controllers.Investments)
 }

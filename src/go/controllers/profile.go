@@ -6,6 +6,35 @@ import (
 	"strings"
 )
 
+func Dummies(w http.ResponseWriter, r *http.Request) {
+	p1 := models.Profile{
+		Name:       "Herbert Hubel",
+		ProfilePic: "http://lorempixel.com/680/460/",
+	}
+
+	p2 := models.Profile{
+		Name:       "Umar Halitnov",
+		ProfilePic: "http://lorempixel.com/680/460/",
+	}
+
+	p3 := models.Profile{
+		Name:       "Family Doe",
+		ProfilePic: "http://lorempixel.com/680/460/",
+	}
+
+	var id string
+	var err error
+
+	for _, p := range [...]models.Profile{p1, p2, p3} {
+		id, err = p.Store(r)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+	}
+
+	http.Redirect(w, r, "/profile/"+id, 307)
+}
+
 func Profile(w http.ResponseWriter, r *http.Request) {
 	url := strings.Split(r.URL.Path, "/")
 
