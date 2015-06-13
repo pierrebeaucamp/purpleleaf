@@ -7,7 +7,7 @@
 
 ## Screenshot
 
-> Please make a screenshot of your project and insert it here (use markdown)
+![...](screenshots/screenshot_1.png) ![...](screenshots/screenshot_2.png) ![...](screenshots/screenshot_3.png)
 
 ## Type of the project
 
