@@ -15,13 +15,13 @@ type Profile struct {
 }
 
 // Each profile gets assigend the same ancestor so we have faster reads
-func (p *Profile) parent(c appengine.Context) *datastore.Key {
+func parentProfile(c appengine.Context) *datastore.Key {
 	return datastore.NewKey(c, "Profile", "parent-profile", 0, nil)
 }
 
 func (p *Profile) generateKey(c appengine.Context, id string) (*datastore.Key,
 	error) {
-	key := datastore.NewKey(c, "Profile", id, 0, p.parent(c))
+	key := datastore.NewKey(c, "Profile", id, 0, parentProfile(c))
 	tmp_p := new(Profile)
 
 	err := datastore.Get(c, key, tmp_p)
@@ -38,7 +38,7 @@ func GetProfile(r *http.Request) (*Profile, error) {
 	id := strings.Split(r.URL.Path, "/")[2]
 	p := new(Profile)
 
-	key := datastore.NewKey(c, "Profile", id, 0, p.parent(c))
+	key := datastore.NewKey(c, "Profile", id, 0, parentProfile(c))
 
 	err := datastore.Get(c, key, p)
 	if err != nil {
@@ -46,6 +46,15 @@ func GetProfile(r *http.Request) (*Profile, error) {
 	}
 
 	return p, nil
+}
+
+func GetProfiles(r *http.Request) ([]Profile, error) {
+	c := appengine.NewContext(r)
+	q := datastore.NewQuery("Profile").Ancestor(parentProfile(c)).Limit(3)
+
+	var profiles []Profile
+	_, err := q.GetAll(c, &profiles)
+	return profiles, err
 }
 
 func (p *Profile) Store(r *http.Request) (string, error) {

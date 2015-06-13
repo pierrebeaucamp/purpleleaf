@@ -7,8 +7,15 @@ import (
 )
 
 func NewProject(w http.ResponseWriter, r *http.Request) {
+	name := r.FormValue("title")
+
+	if name == "" {
+		http.Redirect(w, r, "/", 307)
+		return
+	}
+
 	p := models.Project{
-		Name:        r.FormValue("title"),
+		Name:        name,
 		Description: r.FormValue("description"),
 		ImageURL:    models.GetImageURL(r),
 	}
@@ -25,8 +32,8 @@ func Project(w http.ResponseWriter, r *http.Request) {
 	url := strings.Split(r.URL.Path, "/")
 
 	// Redirect wrong urls
-	if len(url) != 3 {
-		http.Redirect(w, r, "/404", 307)
+	if len(url) != 3 || url[2] == "" {
+		http.Redirect(w, r, "/", 307)
 		return
 	}
 

@@ -3,76 +3,34 @@
 
 <ul class="collection with-header">
 	<li class="collection-header">Top creditors</li>
-	
-	<li class="collection-item avatar waves-effect">
-		<a href="/profile?id=1">
-			<img src="http://lorempixel.com/output/people-q-c-200-200-3.jpg" alt="" class="circle">
-			<span class="title">John</span>
-			<p>Rooftop in Ghana</p>
-			<i class="mdi-content-send secondary-content"></i>
-		</a>
-    </li>
-
-	<li class="collection-item avatar waves-effect">
-		<a href="/profile?id=2">
-			<img src="http://lorempixel.com/output/people-q-c-200-200-7.jpg" alt="" class="circle">
-			<span class="title">Aisha</span>
-			<p>Corn Field in Namibia</p>
-			<i class="mdi-content-send secondary-content"></i>
-		</a>
-    </li>
-
-	<li class="collection-item avatar waves-effect">
-		<a href="/profile?id=3">
-			<img src="http://lorempixel.com/output/people-q-c-200-200-4.jpg" alt="" class="circle">
-			<span class="title">Family Doe</span>
-			<p>Build a house in South Africa</p>
-			<i class="mdi-content-send secondary-content"></i>
-		</a>
-    </li>
+    {{range $profile := .profiles}}
+        <li class="collection-item avatar waves-effect">
+        <a href="/profile/{{escape $profile.Name}}">
+                <img src="{{$profile.ProfilePic}}" alt="{{$profile.Name}}" class="circle">
+                <span class="title">{{$profile.Name}}</span>
+                <p>Rooftop in Ghana</p>
+                <i class="mdi-content-send secondary-content"></i>
+            </a>
+        </li>
+    {{end}}
 </ul>
 
 <ul class="collection with-header">
 	<li class="collection-header">Top projects</li>
-	
-	<li class="collection-item avatar waves-effect">
-		<a href="#!">
-			<img src="http://lorempixel.com/output/people-q-c-200-200-3.jpg" alt="" class="circle">
-			<span class="title">Rooftop in Ghana</span>
-			<div class="progress">
-				<div class="determinate" style="width: 92%">
-					<span>69 $ to go</span>
-				</div>
-			</div>
-			<i class="mdi-content-send secondary-content"></i>
-		</a>
-    </li>
-
-	<li class="collection-item avatar waves-effect">
-		<a href="#!">
-			<img src="http://lorempixel.com/output/people-q-c-200-200-7.jpg" alt="" class="circle">
-			<span class="title">Corn Field in Namimbia</span>
-			<div class="progress">
-				<div class="determinate" style="width: 84%">
-					<span>213 $ to go</span>
-				</div>
-			</div>
-			<i class="mdi-content-send secondary-content"></i>
-		</a>
-    </li>
-
-	<li class="collection-item avatar waves-effect">
-		<a href="#!">
-			<img src="http://lorempixel.com/output/people-q-c-200-200-4.jpg" alt="" class="circle">
-			<span class="title">Build a house in South Africa</span>
-			<div class="progress">
-				<div class="determinate" style="width: 62%">
-					<span>492 $ to go</span>
-				</div>
-			</div>
-			<i class="mdi-content-send secondary-content"></i>
-		</a>
-    </li>
+    {{range $project := .projects}}
+        <li class="collection-item avatar waves-effect">
+        <a href="/project/{{escape $project.Name}}">
+            <img src="{{$project.ImageURL}}" alt="{{$project.Name}}" class="circle">
+            <span class="title">{{$project.Name}}</span>
+                <div class="progress">
+                    <div class="determinate" style="width: 92%">
+                        <span>69 $ to go</span>
+                    </div>
+                </div>
+                <i class="mdi-content-send secondary-content"></i>
+            </a>
+        </li>
+    {{end}}
 </ul>
 
 {{template "footer"}}

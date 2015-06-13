@@ -18,7 +18,7 @@ type Project struct {
 }
 
 // Each project gets assigend the same ancestor so we have faster reads
-func (p *Project) parent(c appengine.Context) *datastore.Key {
+func parentProject(c appengine.Context) *datastore.Key {
 	return datastore.NewKey(c, "Project", "parent-project", 0, nil)
 }
 
@@ -47,7 +47,7 @@ func GetImageURL(r *http.Request) string {
 // duplicates
 func (p *Project) generateKey(c appengine.Context, id string) (*datastore.Key,
 	error) {
-	key := datastore.NewKey(c, "Project", id, 0, p.parent(c))
+	key := datastore.NewKey(c, "Project", id, 0, parentProject(c))
 	tmp_p := new(Project)
 
 	err := datastore.Get(c, key, tmp_p)
@@ -64,7 +64,7 @@ func GetProject(r *http.Request) (*Project, error) {
 	id := strings.Split(r.URL.Path, "/")[2]
 	p := new(Project)
 
-	key := datastore.NewKey(c, "Project", id, 0, p.parent(c))
+	key := datastore.NewKey(c, "Project", id, 0, parentProject(c))
 
 	err := datastore.Get(c, key, p)
 	if err != nil {
@@ -72,6 +72,15 @@ func GetProject(r *http.Request) (*Project, error) {
 	}
 
 	return p, nil
+}
+
+func GetProjects(r *http.Request) ([]Project, error) {
+	c := appengine.NewContext(r)
+	q := datastore.NewQuery("Project").Ancestor(parentProject(c)).Limit(3)
+
+	var projects []Project
+	_, err := q.GetAll(c, &projects)
+	return projects, err
 }
 
 func GetUploadURL(r *http.Request) (string, error) {

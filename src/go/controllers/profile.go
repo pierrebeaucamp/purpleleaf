@@ -39,7 +39,7 @@ func Profile(w http.ResponseWriter, r *http.Request) {
 	url := strings.Split(r.URL.Path, "/")
 
 	// Redirect to own profile if no id found and logged in
-	if len(url) != 3 {
+	if len(url) != 3 || url[2] == "" {
 		// TODO
 		http.Redirect(w, r, "/profile/otto", 307)
 		return
