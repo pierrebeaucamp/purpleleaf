@@ -513,12 +513,13 @@ td, th{
 
   &.with-header {
     .collection-header {
-      background-color: $collection-bg-color;
+      background-color: color("purple", "darken-1");
       border-bottom: 1px solid $collection-border-color;
       padding: 10px 20px;
+      color: #fff;
     }
     .collection-item {
-      padding-left: 30px;
+      
     }
     .collection-item.avatar {
       padding-left: 72px;

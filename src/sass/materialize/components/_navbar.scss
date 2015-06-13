@@ -40,8 +40,8 @@ nav {
 
   // Logo
   .brand-logo {
-    background: url(/assets/img/logo.png) 0 0 no-repeat;
-    background-size: 185px;
+    background: url(/assets/img/logo.png) 5px 5px no-repeat;
+    background-size: 170px;
     position: absolute;
     color: $navbar-font-color;
     display: inline-block;
@@ -57,8 +57,7 @@ nav {
     }
 
     @media #{$medium-and-down} {
-      left: 10px;
-      top: 5px;
+      left: 0;
     }
 
     &.right {
