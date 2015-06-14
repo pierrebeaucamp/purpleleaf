@@ -740,3 +740,17 @@ span.badge {
 .no-padding {
   padding: 0 !important;
 }
+
+.image-label {
+  font-size: 1rem;  
+}
+.file-field .btn {
+  position: absolute;
+  top: -20px;
+  right:0;
+}
+
+.cta-container {
+  background: #eee; 
+  padding: 25px 0 25px 0;
+}
