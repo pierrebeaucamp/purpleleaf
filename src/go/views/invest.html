@@ -5,37 +5,56 @@
     var PAYMILL_PUBLIC_KEY = '098404831422120f140ad1f1a4558561';
 </script>
 
-<h3>Invest in {{.project.Name}}</h3>
-
 <form id="payment-form" action="/paymill" method="POST">
 
   <input class="card-amount-int" type="hidden" value="15" />
   <input class="card-currency" type="hidden" value="EUR" />
 
-  <div class="form-row">
-    <label>Card number</label>
-    <input class="card-number" type="text" size="20" />
+  <div class="row">
+    <div class="col s12">
+      <h4>Invest in {{.project.Name}}</h4>
+    </div>
   </div>
 
-  <div class="form-row">
-    <label>CVC</label>
-    <input class="card-cvc" type="text" size="4" />
+  <div class="row">
+    <div class="input-field col s12">
+      <label>Card number</label>
+      <input class="card-number" type="text" size="20" />
+    </div>
   </div>
 
-  <div class="form-row">
-    <label>Name</label>
-    <input class="card-holdername" type="text" size="4" />
+  <div class="row">
+    <div class="input-field col s12">
+      <label>CVC</label>
+      <input class="card-cvc" type="text" size="4" />
+    </div>
   </div>
 
-  <div class="form-row">
-    <label>Expiry date (MM/YYYY)</label>
-    <input class="card-expiry-month" type="text" size="2" />
-    <span></span>
-    <input class="card-expiry-year" type="text" size="4" />
+  <div class="row">
+    <div class="input-field col s12">
+      <label>Name</label>
+      <input class="card-holdername" type="text" size="4" />
+    </div>
   </div>
 
+  <div class="row">
+    <div class="input-field col s12">
+        <label for="m">Exp. Month (MM)</label>
+        <input id="m" class="card-expiry-month" type="text" size="2" />
+      </div>
+    </div>
+    <div class="row">
+    <div class="input-field col s12">
+        <label for="y">Exp. Year (YYYY)</label>
+        <input id="y" class="card-expiry-year" type="text" size="4" />
+      </div>
+  </div>
 
-  <button class="submit-button" type="submit">Submit</button>
+  <div class="row" style="background: #eee; padding: 25px 0 25px 0">
+    <div class="col s12 center">
+      <button type="submit" name="submit" class="submit-button purple darken-4 waves-effect waves-light btn-large">Make payment</button>
+  </div>
+  </div>
 
 </form>
 
