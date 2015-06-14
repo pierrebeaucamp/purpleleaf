@@ -3,17 +3,10 @@
 
 <div class="userbox">
 	<div class="userbox__wallpaper">
-<<<<<<< HEAD
         <img src="{{.profile.Wallpaper}}" alt="Wallpaper"/>
 	</div>
 	<div class="userbox__avatar">
         <img src="{{.profile.ProfilePic}}" alt="{{.profile.Name}}" class="circle">
-=======
-		<img src="http://lorempixel.com/400/225/city/4/" />
-	</div>
-	<div class="userbox__avatar">
-		<img src="http://lorempixel.com/200/200/people/1/" alt="" class="circle">
->>>>>>> fd376e92d84d7274e978fa038d1a42aaff202fce
 	</div>	
 	<div class="userbox__name">
         {{.profile.Name}}
@@ -32,71 +25,11 @@
 
     <div class="col s12">
       <ul class="tabs">
-<<<<<<< HEAD
         {{if .profile.Creditor}}
             <li class="tab col s3"><a href="#awards">Awards</a></li>
             <li class="tab col s3"><a href="#supported-projects">Supported Projects</a></li>
         </ul>
         </div>
-=======
-        <li class="tab col s3"><a href="#awards">Awards</a></li>
-        <li class="tab col s3"><a href="#supported-projects">Projects</a></li>
-      </ul>
-    </div>
-    <div id="awards" class="col s12">
-    	<div class="row badge-grid">
-    		<div class="col s3">
-    			<a href="#" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Umar has 20% at Health">
-	    			<img src="/assets/img/health20.png" title="Health" />
-	    		</a>
-    		</div>
-    		<div class="col s3">
-    			<a href="#" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Umar has 5% at Agrar">
-    				<img src="/assets/img/ag5.png" title="Agrar" />
-    			</a>	
-    		</div>
-    		<div class="col s3">
-    			<a href="#" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Umar has full 100% at Education">
-    				<img src="/assets/img/edu100.png" title="Education" />
-    			</a>
-    		</div>
-    		<div class="col s3">
-    			<a href="#" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Umar has 50% at Retail">
-    				<img src="/assets/img/trade50.png" title="Shopping" />
-    			</a>
-    		</div>
-    	</div>	
-    </div>
-    <div id="supported-projects" class="col s12">
-
-    	<ul class="collection with-header">
-	
-			<li class="collection-item avatar waves-effect">
-				<a href="#!">
-					<img src="http://lorempixel.com/output/people-q-c-200-200-3.jpg" alt="" class="circle">
-					<span class="title">Rooftop in Ghana</span>
-					<div class="progress">
-						<div class="determinate" style="width: 100%">
-							<span>Project realized!</span>
-						</div>
-					</div>
-					<i class="mdi-content-send secondary-content"></i>
-				</a>
-		    </li>
-
-			<li class="collection-item avatar waves-effect">
-				<a href="#!">
-					<img src="http://lorempixel.com/output/people-q-c-200-200-7.jpg" alt="" class="circle">
-					<span class="title">Corn Field in Namimbia</span>
-					<div class="progress">
-						<div class="determinate" style="width: 84%">
-							<span>213 $ to go</span>
-						</div>
-					</div>
-					<i class="mdi-content-send secondary-content"></i>
-				</a>
-		    </li>
->>>>>>> fd376e92d84d7274e978fa038d1a42aaff202fce
 
         <div id="awards" class="col s12">
     	    <div class="row badge-grid">
@@ -139,8 +72,6 @@
         {{end}}
     {{end}}
 </div>	
-
-
 
 {{template "footer"}}
 {{end}}
