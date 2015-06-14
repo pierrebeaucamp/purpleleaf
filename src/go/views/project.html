@@ -1,19 +1,21 @@
 {{define "body"}}
-{{template "header"}}
+{{template "header" .login}}
 
 <div class="userbox">
 	<div class="userbox__wallpaper">
-		<img src="http://lorempixel.com/output/city-q-c-400-225-4.jpg" />
+        <img src="{{.project.ImageURL}}" alt="{{.project.Name}}" />
 	</div>
 	<div class="userbox__avatar">
 		<img src="http://lorempixel.com/output/people-q-c-200-200-3.jpg" alt="" class="circle">
 	</div>	
 	<div class="userbox__name">
-		Umar Halitnov
+        {{.project.Name}}
 	</div>	
 	<div class="userbox__bio">
-		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-	</div>	
+	    {{.project.Description}}
+    </div>
+
+    <a class="button" href="?action=invest">Call to action!</a>    
 </div>	
 
  <div class="row">

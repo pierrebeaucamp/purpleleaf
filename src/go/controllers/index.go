@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"appengine"
+	"appengine/user"
 	"html/template"
 	"net/http"
 	"net/url"
@@ -29,9 +31,22 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	varmap := map[string]interface{}{
 		"profiles": profiles,
 		"projects": projects,
+		"login":    getLogin(r),
 	}
 
 	render(t, w, varmap)
+}
+
+func getLogin(r *http.Request) string {
+	c := appengine.NewContext(r)
+	u := user.Current(c)
+	href := "/profile/"
+
+	if u == nil {
+		href, _ = user.LoginURL(c, r.URL.String())
+	}
+
+	return href
 }
 
 func getTemplate(name string) *template.Template {

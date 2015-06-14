@@ -1,7 +1,10 @@
 package controllers
 
 import (
+	"appengine"
+	"appengine/user"
 	"net/http"
+	"net/url"
 	"src/go/models"
 	"strings"
 )
@@ -36,13 +39,19 @@ func Dummies(w http.ResponseWriter, r *http.Request) {
 }
 
 func Profile(w http.ResponseWriter, r *http.Request) {
-	url := strings.Split(r.URL.Path, "/")
+	path := strings.Split(r.URL.Path, "/")
 
 	// Redirect to own profile if no id found and logged in
-	if len(url) != 3 || url[2] == "" {
-		// TODO
-		http.Redirect(w, r, "/profile/otto", 307)
-		return
+	if len(path) != 3 || path[2] == "" {
+		c := appengine.NewContext(r)
+		u := user.Current(c)
+
+		if u == nil {
+			http.Redirect(w, r, "/", 307)
+		}
+
+		id := url.QueryEscape(u.String())
+		http.Redirect(w, r, "/profile/"+id, 302)
 	}
 
 	p, err := models.GetProfile(r)
@@ -53,7 +62,8 @@ func Profile(w http.ResponseWriter, r *http.Request) {
 
 	t := getTemplate("profile")
 	varmap := map[string]interface{}{
-		"id": p.Name,
+		"id":    p.Name,
+		"login": getLogin(r),
 	}
 
 	render(t, w, varmap)

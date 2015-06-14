@@ -13,7 +13,7 @@ import (
 
 type Project struct {
 	Name        string
-	Description string
+	Description string `datastore:",noindex"`
 	ImageURL    string
 }
 

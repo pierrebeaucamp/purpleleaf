@@ -1,7 +1,11 @@
 {{define "body"}}
-{{template "header"}}
+{{template "header" .login}}
 
-<h3>Invest</h3>
+<h3>Invest in {{.project.Name}}</h3>
+
+<form>
+    I want to invest this much: <input type="number" placeholder="100" min="1" required> Euro <br>
+</form>
 
 {{template "footer"}}
 {{end}}

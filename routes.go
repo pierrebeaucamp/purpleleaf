@@ -14,6 +14,4 @@ func init() {
 
 	http.HandleFunc("/profile/", controllers.Profile)
 	http.HandleFunc("/profile/dummies", controllers.Dummies)
-
-	http.HandleFunc("/invest", controllers.Invest)
 }

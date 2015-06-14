@@ -1,5 +1,7 @@
 {{define "body"}}
-{{template "header"}}
+{{template "header" .login}}
+
+<p>{{.loginURL}}</p>
 
 <ul class="collection with-header">
 	<li class="collection-header">Top creditors</li>
