@@ -14,8 +14,8 @@ func Dummies(w http.ResponseWriter, r *http.Request) {
 
 	p1 := models.Profile{
 		Name:       "Herbert Hubel",
-		ProfilePic: "http://lorempixel.com/680/460/",
-		Wallpaper:  "http://lorempixel.com/680/460/",
+		ProfilePic: "http://lorempixel.com/680/460/1",
+		Wallpaper:  "http://lorempixel.com/680/460/2",
 		Bio:        "Lorem ipsum...",
 		Badges:     []string{"health20", "ag5", "edu100", "trade50"},
 		Projects:   []string{"Hello World", "Bye World"},
@@ -24,8 +24,8 @@ func Dummies(w http.ResponseWriter, r *http.Request) {
 
 	p2 := models.Profile{
 		Name:       "Umar Halitnov",
-		ProfilePic: "http://lorempixel.com/680/460/",
-		Wallpaper:  "http://lorempixel.com/680/460/",
+		ProfilePic: "http://lorempixel.com/680/460/1",
+		Wallpaper:  "http://lorempixel.com/680/460/2",
 		Bio:        "Lorem ipsum...",
 		Badges:     []string{"health20", "ag5", "edu100", "trade50"},
 		Projects:   []string{"Hello World"},
@@ -34,8 +34,8 @@ func Dummies(w http.ResponseWriter, r *http.Request) {
 
 	p3 := models.Profile{
 		Name:       "Family Doe",
-		ProfilePic: "http://lorempixel.com/680/460/",
-		Wallpaper:  "http://lorempixel.com/680/460/",
+		ProfilePic: "http://lorempixel.com/680/460/1",
+		Wallpaper:  "http://lorempixel.com/680/460/2",
 		Bio:        "Lorem ipsum...",
 		Badges:     []string{"health20", "ag5", "edu100", "trade50"},
 		Projects:   []string{"Bye World"},
@@ -52,8 +52,8 @@ func Dummies(w http.ResponseWriter, r *http.Request) {
 	pr1 := models.Project{
 		Name:         "Hello World",
 		Description:  "lorem ipsum...",
-		ImageURL:     "http://lorempixel.com/680/460/",
-		WallpaperURL: "http://lorempixel.com/680/460/",
+		ImageURL:     "http://lorempixel.com/680/460/1",
+		WallpaperURL: "http://lorempixel.com/680/460/2",
 		Investors:    []string{"Herbert Hubel"},
 		Goal:         1000,
 		Raised:       1000,
@@ -62,8 +62,8 @@ func Dummies(w http.ResponseWriter, r *http.Request) {
 	pr2 := models.Project{
 		Name:         "Bye World",
 		Description:  "lorem ipsum...",
-		ImageURL:     "http://lorempixel.com/680/460/",
-		WallpaperURL: "http://lorempixel.com/680/460/",
+		ImageURL:     "http://lorempixel.com/680/460/1",
+		WallpaperURL: "http://lorempixel.com/680/460/2",
 		Investors:    []string{"Herbert Hubel"},
 		Goal:         1000,
 		Raised:       500,

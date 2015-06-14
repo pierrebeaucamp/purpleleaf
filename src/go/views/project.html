@@ -23,7 +23,15 @@
 	</div>
 </div>
 
-    <p>Investors:</p>
+
+
+
+    <div class="col s12">
+      <ul class="tabs">
+        
+            <li class="tab col s3"><a href="#supported-projects">Investors</a></li>
+        </ul>
+        </div>
 
         <ul class="collection with-header">
     {{range $profile := .profiles}}
@@ -31,7 +39,7 @@
             <a href="/profile/{{escape $profile.Name}}">
                 <img src="{{$profile.ProfilePic}}" alt="{{$profile.Name}}" class="circle">
                 <span class="title">{{$profile.Name}}</span>
-                <p></p>
+                <p>&nbsp;</p>
                 <i class="mdi-content-send secondary-content"></i>
             </a>
         </li>
