@@ -11,7 +11,12 @@ import (
 
 type Profile struct {
 	Name       string
+	Bio        string `datastore:",noindex"`
 	ProfilePic string
+	Wallpaper  string
+	Badges     []string
+	Projects   []string
+	Creditor   bool
 }
 
 // Each profile gets assigend the same ancestor so we have faster reads

@@ -15,9 +15,10 @@ func NewProject(w http.ResponseWriter, r *http.Request) {
 	}
 
 	p := models.Project{
-		Name:        name,
-		Description: r.FormValue("description"),
-		ImageURL:    models.GetImageURL(r),
+		Name:         name,
+		Description:  r.FormValue("description"),
+		ImageURL:     models.GetImageURL(r),
+		WallpaperURL: "http://lorempixel.com/680/460/",
 	}
 
 	id, err := p.Store(r)
@@ -71,7 +72,8 @@ func SubmitProject(w http.ResponseWriter, r *http.Request) {
 
 	t := getTemplate("projectForm")
 	varmap := map[string]interface{}{
-		"url": url,
+		"url":   url,
+		"login": getLogin(r),
 	}
 
 	render(t, w, varmap)

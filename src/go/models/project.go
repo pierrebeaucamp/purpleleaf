@@ -12,9 +12,15 @@ import (
 )
 
 type Project struct {
-	Name        string
-	Description string `datastore:",noindex"`
-	ImageURL    string
+	Name         string
+	Description  string `datastore:",noindex"`
+	ImageURL     string
+	WallpaperURL string
+	Investors    []string
+	Goal         int
+	Raised       int
+	Percentage   int
+	ToGo         int
 }
 
 // Each project gets assigend the same ancestor so we have faster reads
@@ -60,8 +66,12 @@ func (p *Project) generateKey(c appengine.Context, id string) (*datastore.Key,
 
 // returns a project based on an id
 func GetProject(r *http.Request) (*Project, error) {
-	c := appengine.NewContext(r)
 	id := strings.Split(r.URL.Path, "/")[2]
+	return GetProjectById(r, id)
+}
+
+func GetProjectById(r *http.Request, id string) (*Project, error) {
+	c := appengine.NewContext(r)
 	p := new(Project)
 
 	key := datastore.NewKey(c, "Project", id, 0, parentProject(c))
@@ -93,6 +103,9 @@ func GetUploadURL(r *http.Request) (string, error) {
 func (p *Project) Store(r *http.Request) (string, error) {
 	c := appengine.NewContext(r)
 	id := url.QueryEscape(p.Name)
+
+	p.Percentage = p.Raised * 100 / p.Goal
+	p.ToGo = p.Goal - p.Raised
 
 	key, err := p.generateKey(c, id)
 	if err != nil {

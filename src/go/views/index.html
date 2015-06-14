@@ -25,8 +25,12 @@
             <img src="{{$project.ImageURL}}" alt="{{$project.Name}}" class="circle">
             <span class="title">{{$project.Name}}</span>
                 <div class="progress">
-                    <div class="determinate" style="width: 92%">
-                        <span>69 $ to go</span>
+                    <div class="determinate" style="width: {{$project.Percentage}}%">
+                        {{if eq $project.Percentage 100}}
+                            <span>Project realized!</span>
+                        {{else}}
+                            <span>{{$project.ToGo}}$ to go</span>
+                        {{end}}
                     </div>
                 </div>
                 <i class="mdi-content-send secondary-content"></i>
