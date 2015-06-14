@@ -8,6 +8,8 @@ import (
 func init() {
 	http.HandleFunc("/", controllers.Index)
 
+	http.HandleFunc("/paymill", controllers.Paymill)
+
 	http.HandleFunc("/project/", controllers.Project)
 	http.HandleFunc("/project/new", controllers.SubmitProject)
 	http.HandleFunc("/project/upload", controllers.NewProject)
