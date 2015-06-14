@@ -1,13 +1,12 @@
 # PurpLeaf
 
-
 ## Elevator pitch
 
-> In three sentences – what’s your idea?
+We believe in the good of society. Therefore we want the reward the people how take risks by investing in those who need it the most. And as a a bonus, reward we with badges.
 
 ## Screenshot
 
-![...](screenshots/screenshot_1.png) ![...](screenshots/screenshot_2.png) ![...](screenshots/screenshot_3.png)
+![Overview](https://raw.githubusercontent.com/poctec/purpleleaf/master/screenshots/screenshot_1.png) ![project page](https://raw.githubusercontent.com/poctec/purpleleaf/master/screenshots/screenshot_2.png) ![funder page](https://raw.githubusercontent.com/poctec/purpleleaf/master/screenshots/screenshot_3.png) ![investor page](https://raw.githubusercontent.com/poctec/purpleleaf/master/screenshots/screenshot_4.png)
 
 ## Type of the project
 
@@ -15,31 +14,41 @@
 
 ## MVP
 
-> What’s the minimum viable product? Which features does it have?
+* Overview-Page
+	* Top creditors
+	* Top projects
+* Creditor profile
+* Project page
+	* Awards
+	* Supported Projecs
 
 ## Target group
 
-> Who should use your product?
+* Private Investors
 
 ## Use Case
 
-> How will users typically use this product?
+* Look around for interesting project. If the user like a project, he can make invest and get award for that.
 
 ## Challenges & solutions
 
-> What was the most difficult part of the project? What problems did you encounter? How did you solve them?
+* Finding an idea that matches the given APIs. 
 
 ## Scalability
 
-> How can the project be further developed?
+* adding more features
 
 ## Technology
 
-> Which frameworks and solutions did you use?
+* [Google App Engine](https://cloud.google.com/appengine/)
+* [Google Go](https://golang.org)
+* [Gulp](http://gulpjs.com)
+* [Materialize](http://materializecss.com)
+* [Paymill](https://www.paymill.com/de)
 
 ## Link
 
-> Please insert the deployment link. This is crucial. Try not to host things just locally.
+[http://purple-leaf.appspot.com](http://purple-leaf.appspot.com)
 
 ## Source code
 
