@@ -25,12 +25,13 @@
 
     <div class="col s12">
       <ul class="tabs">
-        {{if .profile.Creditor}}
-            <li class="tab col s3"><a href="#awards">Awards</a></li>
+        
+            {{if .profile.Creditor}}<li class="tab col s3"><a href="#awards">Awards</a></li>{{end}}
             <li class="tab col s3"><a href="#supported-projects">Supported Projects</a></li>
         </ul>
         </div>
 
+        {{if .profile.Creditor}}
         <div id="awards" class="col s12">
     	    <div class="row badge-grid">
                 {{range $badge := .badges}}
@@ -42,6 +43,7 @@
                 {{end}}
     	    </div>	
         </div>
+        {{end}}
 
         <div id="supported-projects" class="col s12">
     	    <ul class="collection with-header">
@@ -65,12 +67,6 @@
             {{end}}
 		    </ul>
         </div>
-    {{else}} 
-        <p>Projects:</p>
-        {{range $project := .projects}}
-            <a href="">This one</a>
-        {{end}}
-    {{end}}
 </div>	
 
 {{template "footer"}}

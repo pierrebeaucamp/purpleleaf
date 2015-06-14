@@ -8340,7 +8340,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   margin: -70px 15px 0 15px;
   width: 120px; }
   .userbox__avatar img {
-    border: 3px solid #fff; }
+    border: 3px solid #fff;
+    height: 120px; }
 
 .userbox__name {
   float: left;
@@ -8349,7 +8350,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .userbox__name .badge {
     color: #fff;
     font-size: 12px;
-    font-family: sans-serif; }
+    font-family: sans-serif;
+    right: auto;
+    margin-left: 2px; }
 
 .userbox__bio {
   clear: both;
