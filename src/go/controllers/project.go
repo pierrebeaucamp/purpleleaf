@@ -4,6 +4,7 @@ import (
 	"appengine"
 	"appengine/user"
 	"net/http"
+	"net/url"
 	"src/go/models"
 	"strings"
 )
@@ -30,10 +31,10 @@ func NewProject(w http.ResponseWriter, r *http.Request) {
 }
 
 func Project(w http.ResponseWriter, r *http.Request) {
-	url := strings.Split(r.URL.Path, "/")
+	path := strings.Split(r.URL.Path, "/")
 
 	// Redirect wrong urls
-	if len(url) != 3 || url[2] == "" {
+	if len(path) != 3 || path[2] == "" {
 		http.Redirect(w, r, "/", 307)
 	}
 
@@ -47,10 +48,17 @@ func Project(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", 307)
 	}
 
+	var profiles = make([]models.Profile, len(p.Investors))
+	for i, inv := range p.Investors {
+		tmp, _ := models.GetProfileById(r, url.QueryEscape(inv))
+		profiles[i] = *tmp
+	}
+
 	t := getTemplate("project")
 	varmap := map[string]interface{}{
-		"project": p,
-		"login":   getLogin(r),
+		"project":  p,
+		"profiles": profiles,
+		"login":    getLogin(r),
 	}
 
 	render(t, w, varmap)

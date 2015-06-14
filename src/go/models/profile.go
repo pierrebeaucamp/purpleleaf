@@ -39,9 +39,13 @@ func (p *Profile) generateKey(c appengine.Context, id string) (*datastore.Key,
 
 // returns a profile based on an id
 func GetProfile(r *http.Request) (*Profile, error) {
-	c := appengine.NewContext(r)
 	id := strings.Split(r.URL.Path, "/")[2]
+	return GetProfileById(r, id)
+}
+
+func GetProfileById(r *http.Request, id string) (*Profile, error) {
 	p := new(Profile)
+	c := appengine.NewContext(r)
 
 	key := datastore.NewKey(c, "Profile", id, 0, parentProfile(c))
 
